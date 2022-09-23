@@ -17,4 +17,4 @@ make a new tiny project every week!
    on your phone and it will open the app on your phone!
 
 Note: It may take a second for data to appear because the API
-call takes awile :((
+call takes awhile :((
