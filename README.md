@@ -5,7 +5,7 @@ make a new tiny project every week!
 
 # How to run locally
 
-1) Pull this code into a local directory on your machine
+1) Clone this repo into a local directory on your machine
 2) Make sure you have expo installed on your machine (if not,
    go to https://docs.expo.dev/get-started/installation/
    for instructions)
