@@ -10,7 +10,9 @@ make a new tiny project every week!
    go to https://docs.expo.dev/get-started/installation/
    for instructions)
 3) Make sure you have the Expo Go app installed on your phone
-4) In the same local directory on your machine, run `expo start`
+4) In the same local directory on your machine, run `expo start` (note 
+   that some versions of node won't work with expo, personally I switch
+   to node v16.15.0 when running this command)
 5) You should see a QR code pop up, scan this using the camera
    on your phone and it will open the app on your phone!
 
