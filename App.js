@@ -29,15 +29,15 @@ export default function App() {
     };
 
     const Icon = () => {
-        if (weather === "clear sky") {
-            if ((currentTime < sunrise) && (currentTime > sunset)) {
-                return (
-                    <Ionicons name="ios-sunny-outline" size={48} color='hsl(204, 100%, 90%)' />
-                );
-            }
-            else {
+        if (weather === "clear sky" || weather === "mist") {
+            if ((currentTime > sunset) || (currentTime < sunrise)) {
                 return (
                     <Ionicons name="ios-moon-outline" size={48} color='hsl(204, 100%, 90%)' />
+                );
+            }
+            if ((currentTime > sunrise) && (currentTime < sunset)) {
+                return (
+                    <Ionicons name="ios-sunny-outline" size={48} color='hsl(204, 100%, 90%)' />
                 );
             }
         }
