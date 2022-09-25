@@ -3,11 +3,10 @@ import { Platform, StyleSheet, Text, View, Animated } from 'react-native';
 import * as Location from 'expo-location';
 import React, {useEffect, useState, useRef} from 'react';
 import { Ionicons } from '@expo/vector-icons'; 
-
+import { KEY } from './key';
 export default function App() {
 
     const units = "imperial";
-    const key = "1c384d0483290f4ddf94960bfee68f6b";
 
     const [location, setLocation] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
@@ -55,7 +54,7 @@ export default function App() {
             setLocation(location);
             const latitude = location.coords.latitude;
             const longitude = location.coords.longitude;
-            const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${key}`);
+            const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${KEY}`);
             const jsonInfo = await data.json();
             console.log(jsonInfo);
             setWeather(jsonInfo.weather[0].description);
