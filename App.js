@@ -15,6 +15,9 @@ export default function App() {
     const [town, setTown] = useState(null);
     const [currentTemperature, setCurrentTemperature] = useState(null);
     const [feelsLike, setFeelsLike] = useState(null);
+    const [sunset, setSunset] = useState(null);
+    const [sunrise, setSunrise] = useState(null);
+    const [currentTime, setCurrentTime] = useState(null); 
     const fadeAnimation = useRef(new Animated.Value(0)).current;
 
     const fadeIn = () => {
@@ -27,9 +30,16 @@ export default function App() {
 
     const Icon = () => {
         if (weather === "clear sky") {
-            return (
-                <Ionicons name="ios-sunny-outline" size={48} color='hsl(204, 100%, 90%)' />
-            );
+            if ((currentTime < sunrise) && (currentTime > sunset)) {
+                return (
+                    <Ionicons name="ios-sunny-outline" size={48} color='hsl(204, 100%, 90%)' />
+                );
+            }
+            else {
+                return (
+                    <Ionicons name="ios-moon-outline" size={48} color='hsl(204, 100%, 90%)' />
+                );
+            }
         }
     };
 
@@ -52,7 +62,9 @@ export default function App() {
             setTown(jsonInfo.name);
             setCurrentTemperature(jsonInfo.main.temp);
             setFeelsLike(jsonInfo.main.feels_like);
-
+            setSunset(new Date(jsonInfo.sys.sunset * 1000).toLocaleTimeString());
+            setSunrise(new Date(jsonInfo.sys.sunrise * 1000).toLocaleTimeString());
+            setCurrentTime(new Date().toLocaleTimeString());
             fadeIn();
         })();
     }, []);
